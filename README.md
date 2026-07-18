@@ -44,7 +44,7 @@ map, never a target-list.**
 
 ```
 20-actors/watatsuna/
-├── manifest.jsonld                         # DID, cells, gates, watatsumi pairing
+├── wire/manifest.jsonld                         # DID, cells, gates, watatsumi pairing
 ├── README.md                               # this file
 ├── CLAUDE.md                               # agent reference
 ├── data/

@@ -56,7 +56,7 @@
       "id": "cell:watatsuna.viz",
       "method": "viz/build_viz_data.py",
       "input": "data/cable-graph.merged.kotoba.edn (or seed)",
-      "output": ["viz/cable-resilience.json", "viz/cable-resilience.htm", "viz/cable-globe.htm"],
+      "output": ["wire/viz/cable-resilience.json", "viz/cable-resilience.htm", "viz/cable-globe.htm"],
       "pipeline": "analyze → payload → self-contained canvas 2D map + 3D orthographic globe (G2: redundancy surface, not target-list). kami-engine WASM globe integration (shared w/ kanae/shibuya) deferred; cable-resilience.json is the contract."
     }
   ],

@@ -18,8 +18,7 @@
 ;; _SEED = pathlib.Path(__file__).resolve().parent.parent / "data" / "seed-cable-graph.kotoba.edn"
 ;; Resolve relative to *file* so the suite runs from any cwd.
 (def seed
-  (-> (io/file *file*) .getParentFile .getParentFile
-      (io/file "data" "seed-cable-graph.kotoba.edn")))
+  (io/file (System/getProperty "user.dir") "data" "seed-cable-graph.kotoba.edn"))
 
 (defn- load*
   "Mirror test_analyze._load(): rows → classify → analyze. Returns

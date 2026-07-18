@@ -60,7 +60,7 @@
     (is (= "shunt-fault" (get (second faults) "kind")))))
 
 (deftest test-seed-aggregate
-  (let [p (v/build-payload "20-actors/watatsuna/data/seed-cable-graph.kotoba.edn")]
+  (let [p (v/build-payload "data/seed-cable-graph.kotoba.edn")]
     (is (= "seed-cable-graph.kotoba.edn" (get p "source")))
     (is (= 14 (get p "cables")))
     (is (= 22 (get p "stations")))

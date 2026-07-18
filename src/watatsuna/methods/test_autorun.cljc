@@ -102,7 +102,7 @@
 
 (deftest test-no-external-io
   ;; mirror inspect.getsource(autorun)+inspect.getsource(kotoba): scan the ported source text.
-  (let [methods-dir autorun/here   ; the actor's methods/ dir (absolute, resolved by autorun)
+  (let [methods-dir (io/file autorun/here "src" "watatsuna" "methods")   ; the actor's methods/ dir (absolute, resolved by autorun)
         src (str (slurp (io/file methods-dir "autorun.cljc"))
                  (slurp (io/file methods-dir "kotoba.cljc")))]
     (doseq [banned ["urllib" "http.client" "socket" "requests" "subprocess"]]

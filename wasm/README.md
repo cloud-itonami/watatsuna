@@ -15,7 +15,7 @@ and it surfaces an honest architectural boundary.
 - `wit/world.wit` — `world watatsuna-actor { export compute: func() -> string; }`
 - `build.sh` — componentize-py build + jco transpile + CID.
 - `verify.mjs` — headless: run the transpiled component, assert Malacca top.
-- `watatsuna-actor.meta.json` — recorded CID + size + tier (committed; the binary is not).
+- `../wire/wasm/watatsuna-actor.meta.json` — recorded CID + size + tier (committed; the binary is not).
 
 ## Build & verify
 
@@ -24,7 +24,7 @@ and it surfaces an honest architectural boundary.
 node verify.mjs            # asserts top chokepoint = Malacca
 ```
 
-Recorded artifact (see `watatsuna-actor.meta.json`):
+Recorded artifact (see `../wire/wasm/watatsuna-actor.meta.json`):
 - CID `bafybeihusqahaeirwqur64aeh5fvwuoh54cawbmo7smx3h2abvps6li7pa` (**dag-pb**, multi-block)
 - size ~17.6 MB (bundles CPython), built with componentize-py 0.23.0
 

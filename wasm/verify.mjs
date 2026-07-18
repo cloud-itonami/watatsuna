@@ -16,7 +16,7 @@ if (!existsSync(transpiled)) {
   process.exit(2);
 }
 
-const meta = JSON.parse(readFileSync(join(DIR, "watatsuna-actor.meta.json"), "utf8"));
+const meta = JSON.parse(readFileSync(join(DIR, "../wire/wasm/watatsuna-actor.meta.json"), "utf8"));
 const mod = await import(transpiled);
 const out = JSON.parse(mod.compute());
 

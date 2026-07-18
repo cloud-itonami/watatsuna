@@ -15,18 +15,12 @@
             [watatsuna.methods.ingest :as ingest]
             [watatsuna.methods._edn :as edn]))
 
-(defn- repo-root []
-  (let [cwd (io/file (System/getProperty "user.dir"))]
-    (loop [d cwd]
-      (cond
-        (nil? d) cwd
-        (.exists (io/file d "20-actors" "watatsuna" "data" "seed-cable-graph.kotoba.edn")) d
-        :else (recur (.getParentFile d))))))
+(defn- repo-root [] (io/file (System/getProperty "user.dir")))
 
-(def ^:private actor (io/file (repo-root) "20-actors" "watatsuna"))
-(def ^:private methods-dir (io/file actor "methods"))
+(def ^:private actor (repo-root))
+(def ^:private methods-dir (io/file actor "src" "watatsuna" "methods"))
 (def ^:private seed-path (io/file actor "data" "seed-cable-graph.kotoba.edn"))
-(def ^:private sample-json (io/file actor "data" "ingest" "telegeography-sample.json"))
+(def ^:private sample-json (io/file actor "wire" "data" "ingest" "telegeography-sample.json"))
 
 (defn- as-map [r] (if (map? r) r (into {} r)))
 
@@ -164,7 +158,7 @@
   (is (thrown? clojure.lang.ExceptionInfo (ingest/-main "--live" "http://example/x"))))
 
 ;; ── Python↔Clojure parity: bridge_source produces the SAME records ─────────
-;; Golden-file parity (ADR-2606131300): `test_ingest_golden.json` is the REAL Python
+;; Golden-file parity (ADR-2606131300): `../../wire/methods/test_ingest_golden.json` is the REAL Python
 ;; ingest.bridge_source output over telegeography-sample.json, captured byte-for-byte
 ;; (json.dumps sort_keys=True) BEFORE the Python prune. Freezing it keeps the cross-language
 ;; parity guarantee after ingest.py is gone — the cljc port must still reproduce these exact
@@ -172,7 +166,7 @@
 
 (deftest python-clojure-bridge-parity
   (let [parse-json (requiring-resolve 'cheshire.core/parse-string)
-        py (parse-json (slurp (io/file methods-dir "test_ingest_golden.json")))
+        py (parse-json (slurp (io/file actor "wire" "methods" "test_ingest_golden.json")))
         clj (ingest/bridge-source sample-json)
         ;; normalize both sides to sets of attr->value maps (order-independent)
         norm (fn [recs] (set (map (fn [r] (as-map r)) recs)))]
