@@ -9,7 +9,8 @@
   writes plain EDN files), so parity is over the bridged-record shape, not a CID.
 
   HERMETIC: asserted against the committed seed + sample with exact, known counts."
-  (:require [clojure.java.io :as io]
+  (:require #?(:clj [cheshire.core :as json])
+            [clojure.java.io :as io]
             [clojure.string :as str]
             [clojure.test :refer [deftest is]]
             [watatsuna.methods.ingest :as ingest]
@@ -164,12 +165,12 @@
 ;; parity guarantee after ingest.py is gone — the cljc port must still reproduce these exact
 ;; (cables, stations, links) record sets.
 
-(deftest python-clojure-bridge-parity
-  (let [parse-json (requiring-resolve 'cheshire.core/parse-string)
-        py (parse-json (slurp (io/file actor "wire" "methods" "test_ingest_golden.json")))
-        clj (ingest/bridge-source sample-json)
-        ;; normalize both sides to sets of attr->value maps (order-independent)
-        norm (fn [recs] (set (map (fn [r] (as-map r)) recs)))]
-    (is (= (set (get py "cables")) (norm (:cables clj))))
-    (is (= (set (get py "stations")) (norm (:stations clj))))
-    (is (= (set (get py "links")) (norm (:links clj))))))
+#?(:clj
+   (deftest python-clojure-bridge-parity
+     (let [py (json/parse-string (slurp (io/file actor "wire" "methods" "test_ingest_golden.json")))
+           clj (ingest/bridge-source sample-json)
+           ;; normalize both sides to sets of attr->value maps (order-independent)
+           norm (fn [recs] (set (map (fn [r] (as-map r)) recs)))]
+       (is (= (set (get py "cables")) (norm (:cables clj))))
+       (is (= (set (get py "stations")) (norm (:stations clj))))
+       (is (= (set (get py "links")) (norm (:links clj)))))))
