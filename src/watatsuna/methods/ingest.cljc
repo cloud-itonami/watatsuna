@@ -23,7 +23,7 @@
   strings (incl. all datom attrs + record keys) stay STRINGS; closed-vocab →
   ex-info; trailing opts maps."
   (:require [watatsuna.methods._edn :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             #?(:clj [cheshire.core :as json])))
 
@@ -40,7 +40,7 @@
   "Lowercase `s`, collapse runs of non-[a-z0-9] into a single '-', strip leading/
   trailing '-' (mirror of Python `_slug`)."
   [s]
-  (-> (str/lower-case s)
+  (-> (str/lower s)
       (str/replace #"[^a-z0-9]+" "-")
       (as-> x (str/replace x #"^-+" ""))
       (as-> x (str/replace x #"-+$" ""))))
@@ -106,7 +106,7 @@
          ;; input lp.id → kotoba :station/id
          station-id (reduce (fn [m p]
                               (let [sid (str "station."
-                                             (str/lower-case (get p "country" "xx"))
+                                             (str/lower (get p "country" "xx"))
                                              "." (slug (get p "name")))]
                                 (assoc m (get p "id") sid)))
                             {} lps)

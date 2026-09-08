@@ -7,7 +7,7 @@
   construction. This suite proves no other plan kind can appear."
   (:require [clojure.test :refer [deftest is]]
             [clojure.set :as set]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [watatsuna.methods.analyze :as a]
             [watatsuna.methods.plan :as plan]
             [watatsuna.methods._edn :as edn]
@@ -60,7 +60,7 @@
   (let [{:keys [recs]} (plan*)
         edn-text (plan/render-edn recs)]
     (is (str/includes? edn-text "redundancy + repair + monitor ONLY"))
-    (is (or (not (str/includes? (str/lower-case edn-text) "interdiction"))
+    (is (or (not (str/includes? (str/lower edn-text) "interdiction"))
             (str/includes? edn-text "No interdiction")))))
 
 ;; ── test_rendered_md_states_watatsuna_knows_watatsumi_acts ───────────────────

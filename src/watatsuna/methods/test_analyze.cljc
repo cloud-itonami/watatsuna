@@ -10,7 +10,7 @@
   charter invariant: watatsuna is a RESILIENCE map, NEVER a target-list — it ranks fragility
   to ADD redundancy, never to identify where to cut, and never asserts sabotage intent (G2)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [watatsuna.methods.analyze :as a]
             [watatsuna.methods._edn :as edn]
             [clojure.java.io :as io]))

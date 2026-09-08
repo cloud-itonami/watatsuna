@@ -30,7 +30,7 @@
    - `cables` / `stations` / `choke_cables` are Python dicts / defaultdicts: first-insertion
      order is preserved so the STABLE sort-by ties exactly the Python iteration order."
   (:require [watatsuna.methods._edn :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 ;; ── number formatting: Python `str(round(x, n))` ────────────────────────────

@@ -11,7 +11,7 @@
       and NO 'where to cut' / target attr;
     - it does NO external I/O (offline ingest, local persist — G7 stays gated)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [watatsuna.methods.autorun :as autorun]
             [watatsuna.methods.kotoba :as kotoba]))

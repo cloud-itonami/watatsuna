@@ -21,7 +21,7 @@
             [watatsuna.methods._edn :as edn]
             [watatsuna.methods.kotoba :as kotoba]
             #?(:clj [clojure.java.io :as io])
-            #?(:clj [clojure.string :as str])))
+            #?(:clj [kotoba.lang.text :as str])))
 
 (def base-as-of 20260608)
 

@@ -9,7 +9,7 @@
   pure `payload` over the classified buckets + analyze result, plus `build-payload` that reads a
   graph file. OMITTED (IO leg, not ported): main() merged/seed selection + JSON write + the
   _template.htm / _globe_template.htm viewer render."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [watatsuna.methods._edn :as edn]
             [watatsuna.methods.analyze :as an]))
 
