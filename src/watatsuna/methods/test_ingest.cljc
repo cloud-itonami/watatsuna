@@ -11,7 +11,7 @@
   HERMETIC: asserted against the committed seed + sample with exact, known counts."
   (:require #?(:clj [cheshire.core :as json])
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is]]
             [watatsuna.methods.ingest :as ingest]
             [watatsuna.methods._edn :as edn]))

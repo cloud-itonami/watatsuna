@@ -19,7 +19,7 @@
   printer is preserved behind #?(:clj …) as -main.)"
   (:require [watatsuna.methods.analyze :as analyze]
             [watatsuna.methods._edn :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 ;; watatsumi cable-laying fleet (data/cable-laying-fleet.kotoba.edn), N8-bound
