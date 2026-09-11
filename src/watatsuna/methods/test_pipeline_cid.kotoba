@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; Cross-process END-TO-END pipeline-determinism guard for the watatsuna heartbeat.
 (ns watatsuna.methods.test-pipeline-cid
   "test_pipeline_cid.clj — watatsuna WHOLE-PIPELINE cross-process determinism (ADR-2605312345 /
@@ -12,7 +12,7 @@
   canonical form, a hash/encoding change). If a sandbox forbids spawning the child it SKIPS rather
   than false-failing; it only goes red on a genuine divergence.
 
-  Run:  bb --classpath 20-actors 20-actors/watatsuna/methods/test_pipeline_cid.clj"
+  Run:  kbb --classpath 20-actors 20-actors/watatsuna/methods/test_pipeline_cid.clj"
   (:require [watatsuna.methods.autorun :as autorun]
             [clojure.java.io :as io]
             [clojure.java.shell :refer [sh]]

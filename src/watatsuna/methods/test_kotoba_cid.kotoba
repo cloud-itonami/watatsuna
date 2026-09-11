@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; Cross-process CID-determinism guard for the watatsuna kotoba commit-DAG.
 (ns watatsuna.methods.test-kotoba-cid
   "test_kotoba_cid.clj — watatsuna content-addressing reproducibility (ADR-2605312345 / 2606012600).
@@ -10,7 +10,7 @@
   / autorun's graph-datoms supplies a stable vector order), so the guard is: a FIXED datom
   vector hashes to a FIXED CID, in any process. Seed-independent (a sibling may edit the seed).
 
-  Run:  bb --classpath 20-actors 20-actors/watatsuna/methods/test_kotoba_cid.clj"
+  Run:  kbb --classpath 20-actors 20-actors/watatsuna/methods/test_kotoba_cid.clj"
   (:require [watatsuna.methods.kotoba :as k]
             [clojure.java.io :as io]
             [clojure.test :refer [deftest is run-tests]]))
