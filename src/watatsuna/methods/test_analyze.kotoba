@@ -2,7 +2,7 @@
   "Tests for the watatsuna 綿津綱 submarine-cable resilience analyzer (methods/analyze.cljc).
   1:1 port of `methods/test_analyze.py`.
 
-      bb --classpath 20-actors -e \"(require 'watatsuna.methods.test-analyze 'clojure.test) \\
+      kbb --classpath 20-actors -e \"(require 'watatsuna.methods.test-analyze 'clojure.test) \\
         (clojure.test/run-tests 'watatsuna.methods.test-analyze)\"
 
   Covers the chokepoint/station/diversity roll-ups, the render-datoms bridge-input shape
