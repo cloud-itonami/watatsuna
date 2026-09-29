@@ -46,7 +46,7 @@ map, never a target-list.**
 20-actors/watatsuna/
 ├── wire/manifest.jsonld                         # DID, cells, gates, watatsumi pairing
 ├── README.md                               # this file
-├── CLAUDE.md                               # agent reference
+├── AGENTS.md                               # agent reference
 ├── data/
 │   ├── seed-cable-graph.kotoba.edn         # 14 cables · 22 stations · 43 links · 11 segments · 2 faults (:representative)
 │   ├── cable-graph.merged.kotoba.edn       # GENERATED: seed + ingest bridge (dedup)

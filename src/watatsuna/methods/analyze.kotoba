@@ -17,7 +17,7 @@
   MORE robust; it does NOT identify where to cut. Sabotage intent is never asserted;
   fault :kind mirrors only the public bulletin's own classification.
 
-  CONVENTIONS (root CLAUDE.md): kebab keyword keys in Clojure code; Python ':…' keyword
+  CONVENTIONS (root AGENTS.md): kebab keyword keys in Clojure code; Python ':…' keyword
   strings (incl. all :cable/* / :station/* / :resilience/* attrs + record keys) stay
   STRINGS; pure fns; file I/O only at the #?(:clj) edge. The minimal EDN reader is the
   ALREADY-PORTED `watatsuna.methods._edn` (keywords kept as ':ns/name' strings) — reused,
