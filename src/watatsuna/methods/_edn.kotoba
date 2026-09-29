@@ -6,7 +6,7 @@
   The fidelity invariant this preserves: keywords are kept as their \":ns/name\"
   STRINGS, NOT as Clojure keywords. ingest.py / analyze.py key every record on
   string keys (\":cable/id\", \":station/id\", \":cable.link/cable\", …) and the
-  Python `:`-strings stay strings (root CLAUDE.md convention) — so the loader must
+  Python `:`-strings stay strings (root AGENTS.md convention) — so the loader must
   yield the same string shape the Python `load_edn` does, byte-for-byte, or the
   seed-merge dedup would key on the wrong thing.
 

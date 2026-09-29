@@ -19,7 +19,7 @@
   CID-parity here (cf. autorun/kotoba, which DO content-address). Pure fns;
   I/O (JSON read, EDN write) at the #?(:clj) edge.
 
-  CONVENTIONS (root CLAUDE.md): kebab keyword keys in Clojure code; Python \":…\"
+  CONVENTIONS (root AGENTS.md): kebab keyword keys in Clojure code; Python \":…\"
   strings (incl. all datom attrs + record keys) stay STRINGS; closed-vocab →
   ex-info; trailing opts maps."
   (:require [watatsuna.methods._edn :as edn]

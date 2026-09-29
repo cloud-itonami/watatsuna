@@ -1,7 +1,7 @@
 # watatsuna 綿津綱 — agent reference
 
 > World submarine-cable network knowledge graph. Tier-B, R0 design-only. ADR-2606012600.
-> Read the repo-root `CLAUDE.md` first; this file only adds actor-local rules.
+> Read the repo-root `AGENTS.md` first; this file only adds actor-local rules.
 
 ## Identity
 
